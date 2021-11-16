@@ -13,18 +13,6 @@ namespace AddressBook
         {
             addresslist.Add(contact);
         }
-        public void Editcontact(string name)
-        {
-            foreach(var contact in addresslist)
-            {
-                if (contact.firstname == name || contact.lastname == name)
-                {
-                    Console.WriteLine("what to be edited");
-                    string address = Console.ReadLine();
-                    contact.Address = address;
-                }
-            }
-        }
         public void Display()
         {
             foreach(var contact in addresslist)
