@@ -81,14 +81,7 @@ namespace AddressBook
         {
             foreach(var contact in addresslist)
             {
-                Console.WriteLine("firstname =" + contact.firstname+"\nlastname =" + contact.lastname+ "\njAddress =" + contact.Address+ "\nCity =" + contact.city+ "\nState =" + contact.state+ "\nZip =" + contact.zip+ "\nPhone-Number =" + contact.phone_number);
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine("Email-Id =" + contact.email_id);
+                Console.WriteLine("firstname =" + contact.firstname+"\nlastname =" + contact.lastname+ "\njAddress =" + contact.Address+ "\nCity =" + contact.city+ "\nState =" + contact.state+ "\nZip =" + contact.zip+ "\nPhone-Number =" + contact.phone_number+ "Email-Id =" + contact.email_id);
             }
         }
     }
