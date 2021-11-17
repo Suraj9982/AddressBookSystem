@@ -9,6 +9,7 @@ namespace AddressBook
     class AddressBookList
     {
        public List<Contact> addresslist = new List<Contact>();
+        Dictionary<string, List<Contact>> dict = new Dictionary<string, List<Contact>>(); 
         public void Addcontact(Contact contact) 
         {
             addresslist.Add(contact);
@@ -85,13 +86,16 @@ namespace AddressBook
             }
         }
         public void DeleteContact(string name)
-        { 
+        {
+            Contact delete = new Contact();
             foreach(var contact in addresslist.ToList())
             {
                 if (contact.firstname == name || contact.lastname == name)
                 {
-                    addresslist.Remove(contact);
+                    delete = contact;
                 }
+                addresslist.Remove(delete);
+                Console.WriteLine(name + "contact has deleted");
             }
         }
     }
