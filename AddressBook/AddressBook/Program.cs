@@ -13,7 +13,7 @@ namespace AddressBook
             AddressBookList add = new AddressBookList();
             while (flag == true)
             {
-                Console.WriteLine("CHOOSE OPTION\n1.Create Contact\n2.Add contact in addressbook\n3.Edit contact\n4.exit");
+                Console.WriteLine("CHOOSE OPTION\n1.Create Contact\n2.Add contact in addressbook\n3.Edit contact\n4.Delete Contact\n5.Exit");
                 option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -52,10 +52,16 @@ namespace AddressBook
                         add.Display();
                         break;
                     case 4:
+                        Console.WriteLine("enter the name of contact to be delete");
+                        string name = Console.ReadLine();
+                        add.DeleteContact(name);
+                        add.Display();
+                        break;
+                    case 5:
                         flag = false;
                         break;
                     default:
-                        Console.WriteLine("your choice should be between 1 to 4");
+                        Console.WriteLine("your choice should be between 1 to 5");
                         break;
                 }
             }
