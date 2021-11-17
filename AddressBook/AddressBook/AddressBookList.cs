@@ -13,7 +13,6 @@ namespace AddressBook
         {
             addresslist.Add(contact);
         }
-<<<<<<< HEAD
         public void Editcontact(string name)
         {
             foreach (var contact in addresslist)
@@ -78,19 +77,17 @@ namespace AddressBook
                 }
             }
         }
-=======
->>>>>>> 697891ce47017adb47029afa8636f08f8ca12061
         public void Display()
         {
             foreach(var contact in addresslist)
             {
-                Console.WriteLine("firstname =" + contact.firstname);
-                Console.WriteLine("lastname =" + contact.lastname);
-                Console.WriteLine("Address =" + contact.Address);
-                Console.WriteLine("City =" + contact.city);
-                Console.WriteLine("State =" + contact.state);
-                Console.WriteLine("Zip =" + contact.zip);
-                Console.WriteLine("Phone-Number =" + contact.phone_number);
+                Console.WriteLine("firstname =" + contact.firstname+"\nlastname =" + contact.lastname+ "\njAddress =" + contact.Address+ "\nCity =" + contact.city+ "\nState =" + contact.state+ "\nZip =" + contact.zip+ "\nPhone-Number =" + contact.phone_number);
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
                 Console.WriteLine("Email-Id =" + contact.email_id);
             }
         }
