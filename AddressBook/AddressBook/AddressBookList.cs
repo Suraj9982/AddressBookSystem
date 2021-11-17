@@ -8,7 +8,7 @@ namespace AddressBook
 {
     class AddressBookList
     {
-        List<Contact> addresslist = new List<Contact>();
+       public List<Contact> addresslist = new List<Contact>();
         public void Addcontact(Contact contact) 
         {
             addresslist.Add(contact);
@@ -82,6 +82,16 @@ namespace AddressBook
             foreach(var contact in addresslist)
             {
                 Console.WriteLine("firstname =" + contact.firstname+"\nlastname =" + contact.lastname+ "\njAddress =" + contact.Address+ "\nCity =" + contact.city+ "\nState =" + contact.state+ "\nZip =" + contact.zip+ "\nPhone-Number =" + contact.phone_number+ "Email-Id =" + contact.email_id);
+            }
+        }
+        public void DeleteContact(string name)
+        { 
+            foreach(var contact in addresslist.ToList())
+            {
+                if (contact.firstname == name || contact.lastname == name)
+                {
+                    addresslist.Remove(contact);
+                }
             }
         }
     }
