@@ -13,6 +13,7 @@ namespace AddressBook
         {
             addresslist.Add(contact);
         }
+<<<<<<< HEAD
         public void Editcontact(string name)
         {
             foreach (var contact in addresslist)
@@ -77,6 +78,8 @@ namespace AddressBook
                 }
             }
         }
+=======
+>>>>>>> 697891ce47017adb47029afa8636f08f8ca12061
         public void Display()
         {
             foreach(var contact in addresslist)
