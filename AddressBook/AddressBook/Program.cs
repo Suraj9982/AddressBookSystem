@@ -34,7 +34,7 @@ namespace AddressBook
                     case 2:
                         Console.WriteLine("Add contact in specific order:firstname,lastname,address,city,state,zip,phone.no,email-id");
                         newcontact = new Contact();
-                        add = new AddressBookList();
+                       // add = new AddressBookList();
                         add.Addcontact(newcontact);
                         newcontact.firstname = Console.ReadLine();
                         newcontact.lastname = Console.ReadLine();
