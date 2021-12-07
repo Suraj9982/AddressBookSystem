@@ -9,7 +9,7 @@ namespace AddressBook
     class AddressBookList
     {
        public List<Contact> addresslist = new List<Contact>();
-        Dictionary<string, List<Contact>> dict = new Dictionary<string, List<Contact>>(); 
+       Dictionary<string, List<Contact>> dict = new Dictionary<string, List<Contact>>(); 
         public void Addcontact(Contact contact) 
         {
             addresslist.Add(contact);
@@ -96,6 +96,32 @@ namespace AddressBook
                 }
                 addresslist.Remove(delete);
                 Console.WriteLine(name + "contact has deleted");
+            }
+        }
+        public void AddUniqueContact(string firstname)
+        {
+            foreach(var contact in addresslist)
+            {
+                if (addresslist.Contains(contact))
+                {
+                    string uniquename = Console.ReadLine();
+                    dict.Add(uniquename, addresslist);
+                }
+            }
+        }
+        public void DisplayUniqueContact()
+        {
+            Console.WriteLine("Enter the name of dictionary");
+            string firstname = Console.ReadLine();
+            foreach(var contact in dict)
+            {
+                if (contact.Key == firstname)
+                {
+                    foreach(var item in contact.Value)
+                    {
+                        Console.WriteLine("Firstname:"+item.firstname+"\n"+"lastname:"+item.lastname+"\n"+"Address:"+item.Address+"\n"+"City:"+item.city+"\n"+"State:"+item.state+"\n"+"Zip:"+item.zip+"\n"+"Phone.No-"+item.phone_number+"\n"+"Email.Id:"+item.email_id);
+                    }
+                }
             }
         }
     }
