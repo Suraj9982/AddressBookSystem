@@ -14,7 +14,7 @@ namespace AddressBook
             AddressBookList add = new AddressBookList();
             while (flag == true)
             {
-                Console.WriteLine("CHOOSE OPTION\n1.Create Contact\n2.Add contact in addressbook\n3.Edit contact\n4.Delete Contact\n5.Add Unique Contact\n6.Search person by city or state\n7.Exit");
+                Console.WriteLine("CHOOSE OPTION\n1.Create Contact\n2.Add contact in addressbook\n3.Edit contact\n4.Delete Contact\n5.Add Unique Contact\n6.Search person by city or state\n7.SortingByName\n8.Exit");
                 option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -68,10 +68,13 @@ namespace AddressBook
                         add.Search();
                         break;
                     case 7:
+                        add.SortingByName();
+                        break;
+                    case 8:
                         flag = false;
                         break;
                     default:
-                        Console.WriteLine("your choice should be between 1 to 7");
+                        Console.WriteLine("your choice should be between 1 to 8");
                         break;
                 }
             }

@@ -167,13 +167,16 @@ namespace AddressBook
         }
         public static void SearchDisplay(Dictionary<string,List<Contact>> cityPerson,Dictionary<string,List<Contact>> statePersons,string city,string state)
         {
-            Console.WriteLine("------------------- Persons in {0} city-------------------------", city);
+            Console.WriteLine("person in {0} city is :", city);
             foreach (Contact contact in cityPerson[city])
             {
                 Console.WriteLine("{0}", contact.firstname);
             }
             Console.WriteLine("Total count of persons in the city {0} is {1}", city, cityPerson[city].Count);
-            Console.WriteLine("--------------------Persons in {0} state", state);
+
+            Console.WriteLine("Persons in {0} state", state);
+            Console.WriteLine("Persons in {0} state is", state);
+
             foreach (Contact contact in statePersons[state])
             {
                 Console.WriteLine("{0}", contact.firstname);
