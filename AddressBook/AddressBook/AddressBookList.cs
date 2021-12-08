@@ -124,5 +124,20 @@ namespace AddressBook
                 }
             }
         }
+        public void CheckDuplicate(List<Contact> contact,Contact newcontact)
+        {
+           foreach(var item in contact)
+            {
+                var person = contact.Find(e => e.firstname.Equals(newcontact.firstname));
+                if (person != null)
+                {
+                    Console.WriteLine("this person already exist in addressbook with same firstname");
+                }
+                else
+                {
+                    Console.WriteLine("Add another conatct");
+                }
+            }       
+        }
     }
 }
