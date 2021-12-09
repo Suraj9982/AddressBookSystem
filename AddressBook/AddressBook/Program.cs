@@ -14,7 +14,7 @@ namespace AddressBook
             AddressBookList add = new AddressBookList();
             while (flag == true)
             {
-                Console.WriteLine("CHOOSE OPTION\n1.Create Contact\n2.Add contact in addressbook\n3.Edit contact\n4.Delete Contact\n5.Add Unique Contact\n6.Search person by city or state\n7.SortingByName\n8.Exit");
+                Console.WriteLine("CHOOSE OPTION\n1.Create Contact\n2.Add contact in addressbook\n3.Edit contact\n4.Delete Contact\n5.Add Unique Contact\n6.Search,view,count person by city or state\n7.SortingByName\n8.ReadandwriteCsvFile\n9.Exit");
                 option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -71,10 +71,15 @@ namespace AddressBook
                         add.SortingByName();
                         break;
                     case 8:
+                        string Importfilepath = @"C:\Users\admin\Desktop\github\AddressBookSystem\AddressBook\AddressBook\File\addressBookData.csv";
+                        string Exportfilepat=@"C:\Users\admin\Desktop\github\AddressBookSystem\AddressBook\AddressBook\File\ExportAddressBook.csv";
+                        add.ReadAndWriteCsvFile(Importfilepath, Exportfilepat);
+                        break;
+                    case 9:
                         flag = false;
                         break;
                     default:
-                        Console.WriteLine("your choice should be between 1 to 8");
+                        Console.WriteLine("your choice should be between 1 to 10");
                         break;
                 }
             }

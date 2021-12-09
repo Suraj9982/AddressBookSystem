@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CsvHelper;
+using Newtonsoft.Json;
 
 namespace AddressBook
 {
@@ -182,6 +186,58 @@ namespace AddressBook
                 Console.WriteLine("{0}", contact.firstname);
             }
             Console.WriteLine("Total count of persons in the state {0} is {1}", state, statePersons[state].Count);
+        }
+        public void SortingByName()
+        {
+            Console.WriteLine("Enter the Addressbook name that you want to sort :");
+            string addressBookName = Console.ReadLine();
+            if (dict.ContainsKey(addressBookName))
+            {
+                dict[addressBookName].Sort((x, y) => x.firstname.CompareTo(y.firstname));
+                Console.WriteLine("Sorted");
+            }
+            else
+            {
+                Console.WriteLine("The given Addressbook does not exist. Please Enter a Valid Addressbook Name");
+                SortingByName();
+            }
+        }
+        public void ReadAndWriteCsvFile(string Importfilepath,string ExportFilepath)
+        {
+            using (var reader = new StreamReader(Importfilepath))
+            using(var Csv=new CsvReader(reader, CultureInfo.CurrentCulture))
+            {
+                var addressRecords = Csv.GetRecords<Contact>().ToList();
+                foreach(var item in addressRecords)
+                {
+                    Console.WriteLine("firstname:"+item.firstname+"\t"+"lastname:"+item.lastname+"\t"+"Address:"+item.Address+"\t city:"+item.city+"\t state:"+item.state+"\t zip:"+item.zip+"\t phone.no:"+item.phone_number+"\t Email.id:"+item.email_id);
+                }
+                Console.WriteLine("Now write into the csv file");
+                using (var writer = new StreamWriter(ExportFilepath))
+                using (var csvExport = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csvExport.WriteRecords(addressRecords);
+                }
+            }
+        }
+        public void ReadAndWriteJsonFile(string importFilepah,string exportfilepath)
+        {
+            using(StreamReader reader = new StreamReader(importFilepah))
+            {
+                var json = reader.ReadToEnd();
+                var data = JsonConvert.DeserializeObject<List<Contact>>(json);
+                foreach(var item in data)
+                {
+                    Console.WriteLine("firstname:" + item.firstname + "\t" + "lastname:" + item.lastname + "\t" + "Address:" + item.Address + "\t city:" + item.city + "\t state:" + item.state + "\t zip:" + item.zip + "\t phone.no:" + item.phone_number + "\t Email.id:" + item.email_id);
+                }
+                Console.WriteLine("Now write into the json file");
+                JsonSerializer serializer = new JsonSerializer();
+                using (StreamWriter sr = new StreamWriter(exportfilepath))
+                using (JsonWriter writer = new JsonTextWriter(sr))
+                {
+                    serializer.Serialize(writer, data);
+                }
+            }
         }
     }
 }
