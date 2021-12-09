@@ -1,0 +1,22 @@
+[
+    {
+        "firstname": "suraj",
+        "lastname": "kumar",
+        "address": "mahendra colony",
+        "city": "faridabad",
+        "state": "haryana",
+        "zip": "121003",
+        "phone_number": "7290929982",
+        "email_id": "surajsk9982@gmail.com"
+    },
+    {
+        "firstname": "aman",
+        "lastname": "kumar",
+        "address": "mahendra colony",
+        "city": "faridabad",
+        "state": "haryana",
+        "zip": "121003",
+        "phone_number": "729092****",
+        "email_id": "aman9982@gmail.com"
+    }
+]

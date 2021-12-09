@@ -14,7 +14,7 @@ namespace AddressBook
             AddressBookList add = new AddressBookList();
             while (flag == true)
             {
-                Console.WriteLine("CHOOSE OPTION\n1.Create Contact\n2.Add contact in addressbook\n3.Edit contact\n4.Delete Contact\n5.Add Unique Contact\n6.Search,view,count person by city or state\n7.SortingByName\n8.ReadandwriteCsvFile\n9.Exit");
+                Console.WriteLine("CHOOSE OPTION\n1.Create Contact\n2.Add contact in addressbook\n3.Edit contact\n4.Delete Contact\n5.Add Unique Contact\n6.Search,view,count person by city or state\n7.SortingByName\n8.ReadandwriteCsvFile\n9.ReadAndWriteJsonFile\n10.Exit");
                 option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -76,6 +76,11 @@ namespace AddressBook
                         add.ReadAndWriteCsvFile(Importfilepath, Exportfilepat);
                         break;
                     case 9:
+                        string importfile = @"C:\Users\admin\Desktop\github\AddressBookSystem\AddressBook\AddressBook\File\addressData.json";
+                        string exportfile = @"C:\Users\admin\Desktop\github\AddressBookSystem\AddressBook\AddressBook\File\ExportAdress.json";
+                        add.ReadAndWriteJsonFile(importfile, exportfile);
+                        break;
+                    case 10:
                         flag = false;
                         break;
                     default:
